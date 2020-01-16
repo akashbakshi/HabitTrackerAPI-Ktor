@@ -1,0 +1,5 @@
+{
+  "name": "HabitAPI",
+  "description": "A barebones Kotlin ktor REST API, which can easily be deployed to Heroku.",
+  "image": "heroku/java"
+}
