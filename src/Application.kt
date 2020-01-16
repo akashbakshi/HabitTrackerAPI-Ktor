@@ -10,7 +10,7 @@ import io.ktor.jackson.jackson
 import io.ktor.features.ContentNegotiation
 
 fun main(args: Array<String>){
-    embeddedServer(Netty,commandLineEnvironment(System.getenv("PORT")?.toInt() ?:args)).start(wait=true) // get heroku system env variable for the PORT if it's not found default to application.conf port we specified
+    embeddedServer(Netty,commandLineEnvironment(args)).start(wait=true) // get heroku system env variable for the PORT if it's not found default to application.conf port we specified
 }
 
 fun Application.module(){
