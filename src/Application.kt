@@ -10,7 +10,7 @@ import io.ktor.jackson.jackson
 import io.ktor.features.ContentNegotiation
 
 fun main(args: Array<String>){
-    embeddedServer(Netty,2020,module=Application::module).start(wait=true)
+    embeddedServer(Netty,commandLineEnvironment(args)).start(wait=true)
 }
 
 fun Application.module(){

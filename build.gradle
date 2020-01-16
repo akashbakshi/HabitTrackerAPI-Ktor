@@ -27,7 +27,14 @@ repositories {
     mavenLocal()
     jcenter()
 }
+jar {
+    baseName 'habittracker'
+    manifest {
+        attributes 'Main-Class': 'com.akashbakshi.ApplicationKt'
+    }
 
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     compile "io.ktor:ktor-server-netty:$ktor_version"

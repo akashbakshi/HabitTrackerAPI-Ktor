@@ -13,12 +13,12 @@ var habits = mutableListOf<Habit>()
 fun Routing.habits(){
     route("/habit"){
         get("/"){
-            call.respond(habits.toString())
+            call.respond(habits)
         }
         post("/"){
             val tmpHabit = call.receive<Habit>()
             habits.add(tmpHabit)
-            call.respond(tmpHabit.toString())
+            call.respond(tmpHabit)
         }
     }
 }
