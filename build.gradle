@@ -16,6 +16,9 @@ group 'com.akashbakshi'
 version '0.0.1'
 mainClassName = "io.ktor.server.netty.EngineMain"
 
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean
+
 sourceSets {
     main.kotlin.srcDirs = main.java.srcDirs = ['src']
     test.kotlin.srcDirs = test.java.srcDirs = ['test']

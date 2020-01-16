@@ -1,1 +1,1 @@
-web:    java -jar build/libs/habittracker-0.0.1.jar
+web: java -jar build/libs/habittracker-0.0.1.jar
