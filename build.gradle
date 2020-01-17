@@ -40,9 +40,12 @@ jar {
 }
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile "org.jetbrains.exposed:exposed-core:0.20.1"
+    compile "org.jetbrains.exposed:exposed-dao:0.20.1"
+    compile "org.jetbrains.exposed:exposed-jdbc:0.20.1"
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.18'
     compile "io.ktor:ktor-server-netty:$ktor_version"
     compile "ch.qos.logback:logback-classic:$logback_version"
-
     compile "io.ktor:ktor-jackson:$ktor_version"
     testCompile "io.ktor:ktor-server-tests:$ktor_version"
 }
