@@ -10,17 +10,18 @@ data class HabitDC(val id:Int?,val name:String?,val author:String?)
 
 // our object used for Expose ORM database operations
 object Habit: Table("habits") {
-    override val primaryKey =  PrimaryKey(integer("id").autoIncrement())
+    val id =  integer("id").autoIncrement().primaryKey()
     val name = varchar("name",50)
     val author = varchar("author",255)
 }
 
 // extension of ResultRow to Map Habit to our HabitDC
 fun ResultRow.toHabitDC() = HabitDC(
-    id =  this[Habit.primaryKey],
+    id =  this[Habit.id],
     name = this[Habit.name],
     author = this[Habit.author]
 )
 
+
 //Convert the Primary Key to integer
-private operator fun ResultRow.get(primaryKey: Table.PrimaryKey): Int? = primaryKey.columns.firstOrNull()?.indexInPK
+//private operator fun ResultRow.get(primaryKey: Table.PrimaryKey): Int? = primaryKey.columns.firstOrNull()?.indexInPK
