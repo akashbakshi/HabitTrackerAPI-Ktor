@@ -65,14 +65,14 @@ fun Application.updateHabit(id:Int,reqHabit:HabitDC):HabitDC?{
         if(!reqHabit.name.isNullOrBlank() && !reqHabit.name.equals(habitToUpdate.name))
        {
            Habit.update({Habit.id eq habitToUpdate.id!!}){
-               it[name] = reqHabit.name!!
+               it[name] = reqHabit.name
            }
        }
 
         // Only update if property isn't empty or null and if it isn't equal to the current value in database
         if(!reqHabit.author.isNullOrBlank() && !reqHabit.author.equals(habitToUpdate.author)){
             Habit.update({Habit.id eq habitToUpdate.id!!}){
-                it[author] = reqHabit.author!!
+                it[author] = reqHabit.author
             }
         }
     }
