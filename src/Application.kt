@@ -12,6 +12,7 @@ import org.jetbrains.exposed.sql.transactions.*
 import kotlin.system.exitProcess
 import io.ktor.routing.*
 
+
 @UseExperimental(io.ktor.util.KtorExperimentalAPI::class)
 val Application.envKind get() = environment.config.property("ktor.environment").getString()
 
