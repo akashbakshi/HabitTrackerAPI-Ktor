@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      -  ./data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'supersecret'
+      MYSQL_DATABASE: 'habitsDB'
+      MYSQL_USER: 'habitsAdmin'
+      MYSQL_PASSWORD: 'app'
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+
+  ktor-container:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: ktor-habitapi:latest
+    container_name: ktor-habitapi
+    environment:
+      KTOR_ENV: prod
+      DB_URL: "jdbc:mysql://habitsAdmin:app@db/habitsDB"
+    ports:
+      - "5000:5000"
+    links:
+      - db
+    depends_on:
+      - "db"
