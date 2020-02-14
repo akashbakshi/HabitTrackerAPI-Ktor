@@ -11,8 +11,7 @@ services:
       MYSQL_DATABASE: 'habitsDB'
       MYSQL_USER: 'habitsAdmin'
       MYSQL_PASSWORD: 'app'
-    ports:
-      - "3306:3306"
+
 
   ktor-container:
     build:
