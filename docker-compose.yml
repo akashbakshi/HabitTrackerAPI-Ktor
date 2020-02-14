@@ -13,8 +13,6 @@ services:
       MYSQL_PASSWORD: 'app'
     ports:
       - "3306:3306"
-    expose:
-      - "3306"
 
   ktor-container:
     build:
